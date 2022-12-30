@@ -112,7 +112,7 @@ if idx[0]<(len(df)):
             #     '''
             #     , unsafe_allow_html=True)
             result_img1 = col1.image(url_1,use_column_width=False)
-            col1.button('1번',on_click = click_1)
+            col1.button('        1번사진 선택하기     ',on_click = click_1)
         with col2:
             # col2.markdown(
             #     f'''
@@ -120,7 +120,7 @@ if idx[0]<(len(df)):
             #     '''
             #     , unsafe_allow_html=True)
             result_img2 = col2.image(url_2,use_column_width=False)
-            col2.button('2번',on_click = click_2)
+            col2.button('        2번사진 선택하기     ',on_click = click_2)
         
         
         
