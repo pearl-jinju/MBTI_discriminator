@@ -4,7 +4,7 @@ import numpy as np
 from result import mbti
 import time
 from streamlit.components.v1 import html
-
+from st_clickable_images import clickable_images
 
 
 # Initialization
@@ -29,7 +29,7 @@ now_vector = st.session_state['vector']
 idx = st.session_state['idx']
 df = st.session_state['df']
 
-if progress[0]<=1:
+if progress[0]<1:
     progress[0] +=1/12
 else:
     progress[0] =1
@@ -78,38 +78,59 @@ if idx[0]<(len(df)):
         global idx
         now_vector +=url_1_vector
         idx[0] +=2
-        return now_vector,idx
     def click_2():
         global now_vector
         global idx
         now_vector +=url_2_vector
         idx[0] +=2
-        return now_vector,idx
+
+
+    #TODO clickable_images작동 알고리즘 정상화
+    # with st.container():
+    #     clicked = clickable_images(
+    #                             [url_1,url_2],
+    #                             div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
+    #                             img_style={"margin": "5px", "height": "256"},
+    #                             )
+    # if clicked==0:
+    #     click_1()
+    # elif clicked==1:
+    #     click_2()
+    # else:
+    #     pass
+
+
+    # TEMP 임시 작동 코드=============================================
+    # st.columns(2)이 반응형으로 작동하지 않는 버그 확인
+    container = st.container()
+    with container:
+        col1, col2= container.columns(2)
+        with col1:
+            # col1.markdown(
+            #     f'''
+            #     <img src={url_1} alt="test" width=100%>
+            #     '''
+            #     , unsafe_allow_html=True)
+            result_img1 = col1.image(url_1,use_column_width=False)
+            # col1.button('1번',on_click = click_1)
+        with col2:
+            # col2.markdown(
+            #     f'''
+            #     <img src={url_2} alt="test" width=100%>
+            #     '''
+            #     , unsafe_allow_html=True)
+            result_img2 = col2.image(url_2,use_column_width=False)
+            col2.button('2번',on_click = click_2)
         
-    #=============================================row2
+        
+        
 
-    con = st.container()
-    col1, col2= con.columns(2)
-    with col1:
-        # result_img1 = col1.image(url_1,use_column_width='auto')
-        col1.markdown(
-            f'''
-            <img src={url_1} alt="test" width=100%>
-            '''
-            , unsafe_allow_html=True)
-        col1.button('1번',on_click = click_1)
-    with col2:
-        col2.markdown(
-            f'''
-            <img src={url_2} alt="test" width=100%>
-            '''
-            , unsafe_allow_html=True)
-        # result_img2 = col2.image(url_2,use_column_width='auto')
-        col2.button('2번',on_click = click_2)
-
+        
+    
     st.markdown(f"<h3 style='text-align: center;'> 진행률{int(idx[0]/2)+1}/12 </h3>", unsafe_allow_html=True)
     st.progress(progress[0])
-    
+   
+
     
 
             
