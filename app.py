@@ -5,6 +5,8 @@ from result import mbti
 import time
 from streamlit.components.v1 import html
 
+
+
 # Initialization
 if 'vector' not in st.session_state:
     st.session_state['vector'] = np.array([0,0,0,0,0,0,0,0])
@@ -34,6 +36,16 @@ else:
 
 
 #==============================================================================
+
+
+st.set_page_config(
+    page_title="그림으로 알아보는 MBTI",
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+
 st.markdown("<h1 style='text-align: center;'>그림으로 알아보는</h1>", unsafe_allow_html=True)
 
 st.markdown("<h2 style='text-align: center;'>내 MBTI는? </h2>", unsafe_allow_html=True)
@@ -78,7 +90,7 @@ if idx[0]<(len(df)):
     #=============================================row2
 
 
-    col1, _, col2, _ = st.columns([0.3,0.2,0.3,0.2])
+    col1, _, col2, _ = st.columns([0.1,0.4,0.1,0.4])
     with col1:
         result_img1 = col1.image(url_1,use_column_width='auto')
         col1.button('1번',on_click = click_1)
@@ -89,8 +101,6 @@ if idx[0]<(len(df)):
     st.markdown(f"<h3 style='text-align: center;'> 진행률{int(idx[0]/2)+1}/12 </h3>", unsafe_allow_html=True)
     st.progress(progress[0])
     
-    st.markdown("")
-    st.markdown("")
     
     html2 = html(
                 """
@@ -101,8 +111,7 @@ if idx[0]<(len(df)):
                 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
                 """
              )
-    st.markdown("")
-    st.markdown("")
+
     html3 = html(
                 """
                 <ins class="kakao_ad_area" style="display:none;"
@@ -118,8 +127,6 @@ if idx[0]<(len(df)):
     
 else:
     st.markdown("<h3 style='text-align: center;'> 결과를 확인하세요 </h3>", unsafe_allow_html=True)
-    st.markdown("")
-    st.markdown("")
     col1,col2,col3 = st.columns(3)
     with col2:
         if col2.button("결과확인"):
