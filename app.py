@@ -71,10 +71,10 @@ if idx[0]<(len(df)):
 
     col1, col2 = st.columns(2)
     with col1:
-        result_img1 = st.image(url_1,use_column_width='auto')
+        result_img1 = col1.image(url_1,use_column_width='auto')
         col1.button('1번',on_click = click_1)
     with col2:
-        result_img2 = st.image(url_2,use_column_width='auto')
+        result_img2 = col2.image(url_2,use_column_width='auto')
         col2.button('2번',on_click = click_2)
 
     st.markdown(f"<h3 style='text-align: center;'> 진행률{int(idx[0]/2)+1}/12 </h3>", unsafe_allow_html=True)
@@ -111,7 +111,7 @@ if idx[0]<(len(df)):
                 data-ad-height = "50"></ins>
                 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
                 """
-    )
+             )
     st.info("이미지는 AI로 생성된 이미지입니다.")
     
     
