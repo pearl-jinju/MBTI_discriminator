@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from result import mbti
 import time
-
+from streamlit.components.v1 import html
 
 # Initialization
 if 'vector' not in st.session_state:
@@ -82,7 +82,36 @@ if idx[0]<(len(df)):
     
     st.markdown("")
     st.markdown("")
+    
+    html1 = html(
+                """
+                <ins class="kakao_ad_area" style="display:none;"
+                data-ad-unit = "DAN-u1cYNGSagvenr3OF"
+                data-ad-width = "300"
+                data-ad-height = "250"></ins>
+                <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+                 """) 
+    
+    html2 = html(
+                """
+                <ins class="kakao_ad_area" style="display:none;"
+                data-ad-unit = "DAN-JmGMGcuHnnCMglzo"
+                data-ad-width = "160"
+                data-ad-height = "600"></ins>
+                <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+                """
+    )
     st.markdown("")
+    st.markdown("")
+    html3 = html(
+                """
+                <ins class="kakao_ad_area" style="display:none;"
+                data-ad-unit = "DAN-sEnVCoIZ53ZIdRGV"
+                data-ad-width = "320"
+                data-ad-height = "50"></ins>
+                <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+                """
+    )
     st.info("이미지는 AI로 생성된 이미지입니다.")
     
     
