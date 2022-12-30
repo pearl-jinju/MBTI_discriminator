@@ -112,7 +112,7 @@ if idx[0]<(len(df)):
             #     '''
             #     , unsafe_allow_html=True)
             result_img1 = col1.image(url_1,use_column_width=False)
-            # col1.button('1번',on_click = click_1)
+            col1.button('1번',on_click = click_1)
         with col2:
             # col2.markdown(
             #     f'''
