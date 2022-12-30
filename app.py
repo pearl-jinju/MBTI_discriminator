@@ -39,7 +39,16 @@ st.markdown("<h1 style='text-align: center;'>그림으로 알아보는</h1>", un
 st.markdown("<h2 style='text-align: center;'>내 MBTI는? </h2>", unsafe_allow_html=True)
 
 st.markdown("-----")
-
+html1 = html(
+            """
+            <ins class="kakao_ad_area" style="display:none;"
+            data-ad-unit = "DAN-e8d1FyTmPvBaOdRi"
+            data-ad-width = "320"
+            data-ad-height = "100"></ins>
+            <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            """
+            )
+st.markdown("-----")
 
 if idx[0]<(len(df)):
     st.markdown("<h3 style='text-align: center;'> 마음에 드는 사진을 고르세요 </h3>", unsafe_allow_html=True)
@@ -69,7 +78,7 @@ if idx[0]<(len(df)):
     #=============================================row2
 
 
-    col1, col2 = st.columns(2)
+    col1, _, col2, _ = st.columns([0.3,0.2,0.3,0.2])
     with col1:
         result_img1 = col1.image(url_1,use_column_width='auto')
         col1.button('1번',on_click = click_1)
@@ -83,24 +92,15 @@ if idx[0]<(len(df)):
     st.markdown("")
     st.markdown("")
     
-    html1 = html(
-                """
-                <ins class="kakao_ad_area" style="display:none;"
-                data-ad-unit = "DAN-u1cYNGSagvenr3OF"
-                data-ad-width = "300"
-                data-ad-height = "250"></ins>
-                <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-                 """) 
-    
     html2 = html(
                 """
                 <ins class="kakao_ad_area" style="display:none;"
-                data-ad-unit = "DAN-JmGMGcuHnnCMglzo"
-                data-ad-width = "160"
-                data-ad-height = "600"></ins>
+                data-ad-unit = "DAN-oQbADeNtD25C6YTL"
+                data-ad-width = "320"
+                data-ad-height = "50"></ins>
                 <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
                 """
-    )
+             )
     st.markdown("")
     st.markdown("")
     html3 = html(
