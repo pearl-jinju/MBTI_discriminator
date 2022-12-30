@@ -47,10 +47,9 @@ st.set_page_config(
 
 
 st.markdown("<h1 style='text-align: center;'>그림으로 알아보는</h1>", unsafe_allow_html=True)
-
 st.markdown("<h2 style='text-align: center;'>내 MBTI는? </h2>", unsafe_allow_html=True)
-
 st.markdown("-----")
+
 html1 = html(
             """
             <ins class="kakao_ad_area" style="display:none;"
@@ -60,7 +59,7 @@ html1 = html(
             <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
             """
             )
-st.markdown("-----")
+
 
 if idx[0]<(len(df)):
     st.markdown("<h3 style='text-align: center;'> 마음에 드는 사진을 고르세요 </h3>", unsafe_allow_html=True)
@@ -89,18 +88,31 @@ if idx[0]<(len(df)):
         
     #=============================================row2
 
-
-    col1, _, col2, _ = st.columns([0.1,0.4,0.1,0.4])
+    con = st.container()
+    col1, col2= con.columns(2)
     with col1:
-        result_img1 = col1.image(url_1,use_column_width='auto')
+        # result_img1 = col1.image(url_1,use_column_width='auto')
+        col1.markdown(
+            f'''
+            <img src={url_1} alt="test" width=100%>
+            '''
+            , unsafe_allow_html=True)
         col1.button('1번',on_click = click_1)
     with col2:
-        result_img2 = col2.image(url_2,use_column_width='auto')
+        col2.markdown(
+            f'''
+            <img src={url_2} alt="test" width=100%>
+            '''
+            , unsafe_allow_html=True)
+        # result_img2 = col2.image(url_2,use_column_width='auto')
         col2.button('2번',on_click = click_2)
 
     st.markdown(f"<h3 style='text-align: center;'> 진행률{int(idx[0]/2)+1}/12 </h3>", unsafe_allow_html=True)
     st.progress(progress[0])
     
+    
+
+            
     
     html2 = html(
                 """
